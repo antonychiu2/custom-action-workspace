@@ -1,7 +1,7 @@
 console.log(process.env)
 
 var spawn = require("child_process").spawn,child;
-child = spawn("pwsh",[process.env.GITHUB_ACTION_PATH +"/testps.ps1"]);
+child = spawn("pwsh",["./testps.ps1"]);
 child.stdout.on("data",function(data){
     process.stdout.write("" + data);
 });

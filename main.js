@@ -1,12 +1,14 @@
 console.log('This is the main workflow');
 
-function sleep(ms){
-    return new Promise((resolve) => {
-        setTimeout(resolve,ms);
-    });
+
+
+for(var i=0;i<60;i++){
+    
+    task(i);
 }
 
-for(let i=0;i<60;i++){
-    sleep(1000);
-    console.log('${i} minute has passed.');
+function task(i) {
+    setTimeout(function() {
+        console.log(i);
+    }, 1000 * i);
 }

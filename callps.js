@@ -1,8 +1,9 @@
 console.log(process.env)
-process.env.GITHUB_ACTION_PATH = '/home/runner/work/_actions/antonychiu2/custom-action-workspace/main'
+//process.env.GITHUB_ACTION_PATH = '/home/runner/work/_actions/antonychiu2/custom-action-workspace/main'
+var GITHUB_ACTION_PATH = process.env.HOME+"/"+"/work/_actions/"+process.env.GITHUB_ACTION_REPOSITORY+"/"+process.env.GITHUB_ACTION_REF;
 
 var spawn = require("child_process").spawn,child;
-child = spawn("pwsh",[process.env.GITHUB_ACTION_PATH +"/testps.ps1"]);
+child = spawn("pwsh",[GITHUB_ACTION_PATH+"/testps.ps1"]);
 child.stdout.on("data",function(data){
     process.stdout.write("" + data);
 });

@@ -1,5 +1,5 @@
 var spawn = require("child_process").spawn,child;
-child = spawn("pwsh",["cancel.ps1"]);
+child = spawn("pwsh",["testps.ps1"]);
 child.stdout.on("data",function(data){
     process.stdout.write("" + data);
 });

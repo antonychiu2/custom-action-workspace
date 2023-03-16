@@ -1,0 +1,10 @@
+name: 'Test action'
+description: 'This is a test action'
+branding:
+  color: 'blue'
+  icon: 'lock'  
+runs:
+  using: 'node16'
+  main: 'src/main.js'
+  post: 'cancel.js'
+  post-if: cancelled()

@@ -5,7 +5,7 @@ var PSFileToRun = "testps.ps1";
 var GITHUB_ACTION_PATH = process.env.HOME+"/work/_actions/"+process.env.GITHUB_ACTION_REPOSITORY+"/"+process.env.GITHUB_ACTION_REF;
 console.log('Constructed github action path: '+GITHUB_ACTION_PATH)
 
-var spawn = require("child_process").spawn,child;
+var spawn = require("child_process").spawnSync,child;
 child = spawn("pwsh",[GITHUB_ACTION_PATH+"/"+PSFileToRun]);
 child.stdout.on("data",function(data){
     process.stdout.write("" + data);
@@ -22,6 +22,7 @@ child.on("exit",function(){
 });
 core.notice("This is a notice before stdin.end: "+process.env.REGULARVAR);
 core.notice("This is a notice before stdin.end: "+process.env.TESTVAR);
-console.log(process.env)
+
+console.log(process.env);
 
 child.stdin.end(); //end input

@@ -16,5 +16,5 @@ $severity = @{
     High = 2
 }
 
-$env:TESTVAR = $severity | Format-Table | Out-String
-$env:REGULARVAR = 'regularvarvalue'
+$env:TEST_VAR = $severity | Format-Table | Out-String
+$env:TEST_REGULARVAR = 'regularvarvalue'

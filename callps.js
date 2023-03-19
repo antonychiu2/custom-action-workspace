@@ -5,8 +5,8 @@ var PSFileToRun = "testps.ps1";
 var GITHUB_ACTION_PATH = process.env.HOME+"/work/_actions/"+process.env.GITHUB_ACTION_REPOSITORY+"/"+process.env.GITHUB_ACTION_REF;
 console.log('Constructed github action path: '+GITHUB_ACTION_PATH)
 
-var spawn = require("child_process").spawnSync,child;
-child = spawn("pwsh",[GITHUB_ACTION_PATH+"/"+PSFileToRun]);
+var spawnSync = require("child_process").spawn,child;
+child = spawnSync("pwsh",[GITHUB_ACTION_PATH+"/"+PSFileToRun]);
 child.stdout.on("data",function(data){
     process.stdout.write("" + data);
 

@@ -1,3 +1,5 @@
+const core =require('@actions/core');
+
 console.log('This is the main workflow');
 
 console.log(process.env)

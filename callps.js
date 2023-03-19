@@ -17,5 +17,7 @@ child.stderr.on("data",function(data){
 });
 child.on("exit",function(){
     process.stdout.write("Powershell Script finished");
+    core.notice("This is a notice: ");
+
 });
 child.stdin.end(); //end input

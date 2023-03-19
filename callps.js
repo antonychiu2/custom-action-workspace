@@ -22,5 +22,6 @@ child.on("exit",function(){
 });
 core.notice("This is a notice before stdin.end: "+process.env.REGULARVAR);
 core.notice("This is a notice before stdin.end: "+process.env.TESTVAR);
+console.log(process.env)
 
 child.stdin.end(); //end input

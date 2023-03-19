@@ -9,7 +9,6 @@ var spawn = require("child_process").spawn,child;
 child = spawn("pwsh",[GITHUB_ACTION_PATH+"/"+PSFileToRun]);
 child.stdout.on("data",function(data){
     process.stdout.write("" + data);
-    core.notice("This is a notice on stdout: ");
 
 });
 child.stderr.on("data",function(data){
@@ -19,7 +18,7 @@ child.stderr.on("data",function(data){
 });
 child.on("exit",function(){
     process.stdout.write("Powershell Script finished");
-    core.notice("This is a notice on exit: ");
 
 });
+core.notice("This is a notice before stdin.end: ");
 child.stdin.end(); //end input

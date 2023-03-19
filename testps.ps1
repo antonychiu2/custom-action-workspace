@@ -2,7 +2,7 @@ dir env:
 
 $env:TESTENVVAR = 'value of a test env var'
 
-for($i=0;$i -le 5;$i++){
+for($i=0;$i -le 2;$i++){
     Write-Host "This is a sample PS script: $i"
     Start-Sleep -Seconds 1
 
@@ -17,3 +17,4 @@ $severity = @{
 }
 
 $env:TESTVAR = $severity | Format-Table | Out-String
+$env:REGULARVAR = 'regularvarvalue'

@@ -20,5 +20,7 @@ child.on("exit",function(){
     process.stdout.write("Powershell Script finished");
 
 });
-core.notice("This is a notice before stdin.end: ");
+core.notice("This is a notice before stdin.end: "+process.env.REGULARVAR);
+core.notice("This is a notice before stdin.end: "+process.env.TESTVAR);
+
 child.stdin.end(); //end input

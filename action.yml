@@ -1,28 +1,17 @@
-name: 'Test action'
-description: 'This is a test action'
+name: Custom Github Action
+description: 'this is a custom github action'
 branding:
-  color: 'blue'
-  icon: 'lock'
-inputs:
-  application_id:
-    description: 'The ASoC application id where your scan will appear.'
-    required: true
-  scan_name:
-    description: 'The name of the scan created in ASoC.'
-    required: false
-  personal_scan:
-    description: 'Make the scan a personal scan.'
-    required: false
-    type: boolean
-    default: false
-  static_analysis_only:
-    description: 'Only run static analysis. Do not run SCA (Software Composition Analysis).'
-    required: false
-    type: boolean
-    default: false
-
+  icon: check-circle
+  color: blue
 runs:
-  using: 'node16'
-  main: 'callps.js'
-  post: 'cancel.js'
-  post-if: cancelled()
+  using: "composite"
+  steps:
+    - name: Main Step
+      run: |
+        ${{ github.action_path }}/main.ps1
+      shell: pwsh
+    - name: Run only if workflow is cancelled
+      run: |
+        ${{ github.action_path }}/cancelJob.ps1
+      if: cancelled() || always()
+      shell: pwsh

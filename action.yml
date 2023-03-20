@@ -8,7 +8,7 @@ runs:
   steps:
     - name: Main Step
       run: |
-        ${{ github.action_path }}/main.ps1
+        ${{ github.action_path }}/testps.ps1
       shell: pwsh
     - name: Run only if workflow is cancelled
       run: |
